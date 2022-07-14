@@ -29,6 +29,8 @@ build/Release
 # production
 /build
 /dist
+app/css/
+
 # Dependency directories
 node_modules/
 /.pnp
