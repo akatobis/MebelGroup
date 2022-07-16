@@ -250,3 +250,124 @@
    
 }
 // end categories
+
+// start slider
+.slider {
+   &__item {
+      min-width: 1760px;
+      width: 100%;
+      position: relative;
+
+      &-img {
+         min-height: 787px;
+         width: 100%;
+         background-repeat: no-repeat;
+         background-position: center;
+         // background-size: cover;
+         display: block;
+      }
+
+      &-info {
+         width: 480px;
+         position: absolute;
+         top: 200px;
+         left: 150px;
+      }
+
+      &-dots {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 110px;
+         align-items: center;
+         padding-left: 12.5vh;
+         border-top: 1px solid hsla(0, 0%, 100%, 0.3);
+         display: flex;
+      }
+
+      &-dots--left {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         min-width: 160px;
+         width: 100%;
+         height: 110px;
+         border-right: 1px solid hsla(0, 0%, 100%, 0.3);
+      }
+
+      &-dots__total {
+         position: absolute;
+         bottom: 37px;
+         left: 45px;
+         color: $white;
+      }
+   }
+
+   &__suptitle {
+      color: $white;
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 27px;
+   }
+
+   &__title {
+      color: $white;
+      font-size: 60px;
+      line-height: 64px;
+      margin-bottom: 32px;
+   }
+
+   &__btn {
+      display: inline-block;
+      padding: 11.5px 23px;
+      @include f600;
+      font-style: 14px;
+      line-height: 1.215;
+      color: $hover-text;
+      background-color: $white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.1s;
+   }
+
+   &__btn:hover {
+      background-color: transparent;
+      color: #fff;
+      box-shadow: none;
+   }
+}
+
+.slick-dots {
+   position: absolute;
+   bottom: 68px;
+   left: 70px;
+
+   & li {
+      display: none;
+   }
+
+   & .slick-active {
+      display: block;
+      position: relative;
+   }
+
+   & .slick-active::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background-color: #fff;
+   }
+
+   & li button {
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      // font-size: 1;
+   }
+}
+// end slider
