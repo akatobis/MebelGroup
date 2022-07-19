@@ -254,27 +254,42 @@
 // start slider
 .slider {
    &__item {
-      min-width: 1760px;
       width: 100%;
       position: relative;
+      background-color: #fff;
 
       &-img {
          min-height: 787px;
          width: 100%;
+         border-radius: 30px;
          background-repeat: no-repeat;
          background-position: center;
-         // background-size: cover;
+         background-size: cover;
          display: block;
       }
 
-      &-info {
-         width: 480px;
+      &-info--left, 
+      &-info--right {
+         padding: 20px 50px;
+         background: rgba(0, 0, 0, 0.1);
+         border-radius: 15px;
+         width: 550px;
+         height: 300px;
          position: absolute;
          top: 200px;
+      }
+
+      &-info--left {
          left: 150px;
       }
 
+      &-info--right {
+         right: 150px;
+      }
+
       &-dots {
+         background: rgba(0, 0, 0, 0.1);
+         border-radius: 0 0 30px 30px;
          position: absolute;
          bottom: 0;
          left: 0;
@@ -282,7 +297,6 @@
          height: 110px;
          align-items: center;
          padding-left: 12.5vh;
-         border-top: 1px solid hsla(0, 0%, 100%, 0.3);
          display: flex;
       }
 
@@ -333,7 +347,8 @@
    }
 
    &__btn:hover {
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
       color: #fff;
       box-shadow: none;
    }
@@ -341,8 +356,8 @@
 
 .slick-dots {
    position: absolute;
-   bottom: 68px;
-   left: 70px;
+   bottom: 72px;
+   left: 40px;
 
    & li {
       display: none;
@@ -370,4 +385,201 @@
       // font-size: 1;
    }
 }
+
 // end slider
+
+// start .sales-leaders
+.sales-leaders {
+   padding: 100px 0;
+
+   &__title {
+      text-align: center;
+      margin-bottom: 20px;
+   }
+
+   &__subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+   }
+
+   &__items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+   }
+
+   &__inner {
+      padding: 30px;
+      transition: all 0.3s;
+   }
+
+   &__hidden {
+      opacity: 0;
+      transform: all 0.3s;
+   }
+
+   &__discount {
+      text-align: right;
+      position: relative;
+      z-index: 1;
+
+      & span {
+         @include f600;
+         padding-left: 10px;
+         z-index: 100;
+      }
+
+      &-square {
+         position: absolute;
+         top: -18px;
+         right: -6px;
+         width: 54px;
+         height: 60px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         z-index: -1;
+
+         & span:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+            transition: all 0.5s;
+            animation: animate 6s linear infinite;
+            background-color: $peach;
+         }
+      }
+   }
+
+   &__images {
+      & img {
+         width: 500px;
+         height: 500px;
+      }
+   }
+
+   &__description,
+   &__price {
+      text-align: center;
+   }
+
+   &__description {
+      font-size: 20px;
+      line-height: 1.6;
+      min-width: 263px;
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 8px;
+   }
+
+   &__price {
+      display: flex;
+      justify-content: center;
+
+      &--new {
+         @include f600;
+         padding-right: 25px;
+      }
+
+      &--old {
+         text-decoration: line-through;
+      }
+   }
+
+   &__button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 15px 0;
+
+      & .button-buy {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 7px 14px 7px 0;
+         max-height: 40px;
+         border: none;
+         border-radius: 60px;
+         background-color: rgba(237, 235, 233, 0.5);
+         box-shadow: none;
+         cursor: pointer;
+         transition: all 0.3s;
+         text-decoration: none;
+         outline: none;
+      }
+
+      & .button-buy:hover {
+         transition: all 0.6s;
+         background-color: $peach;
+      }
+   }
+
+   &__inner:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s;
+
+      & .sales-leaders__hidden {
+         opacity: 1;
+         transition: all 0.3s;
+      }
+   }
+
+   &__text {
+      font-size: 14px;
+      @include f600;
+      margin-left: 23px;
+      margin-right: 10px;
+   }
+
+   &__icon {
+      position: relative;
+      margin-right: 7px;
+   }
+
+   &__icon::before {
+      padding: 7px;
+      border-radius: 50%;
+      background-color: #fff;
+   }
+
+   &__buy {
+      font-size: 14px;
+      margin-left: 30px;
+      text-align: center;
+      color: darkgray;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+   }
+
+   &__buy::before{
+      content: '';
+      position: absolute;
+      transition: all 0.3s;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $underline;
+   }
+
+   &__buy:hover {
+      color: $text;
+   }
+
+   &__buy:hover::before {
+      background-color: $text;
+   }
+}
+
+@keyframes animate {
+   0% {
+      transform: rotate(0deg);
+   }
+
+   100% {
+      transform: rotate(360deg);
+   }
+}
+// end .sales-leaders
