@@ -571,7 +571,42 @@
    &__buy:hover::before {
       background-color: $text;
    }
+
+   &__load-more {
+      font-style: 14px;
+      line-height: 1.715;
+      @include f600;
+      min-width: 1440px;
+      width: 100%;
+      padding: 15px 0;
+      border: 1px solid $underline;
+      text-align: center;
+      margin: 0 auto;
+      align-items: center;
+      position: relative;
+      transition: all 0.3s;
+      cursor: pointer;
+   }
+
+   &__load-more::after {
+      content: '+';
+      position: absolute;
+      padding-left: 20px;
+      font-size: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   &__load-more:hover {
+      border: 1px solid $text;
+   }
 }
+
+// Количество карточек до нажатия кнопки Load more
+#boxs .box:nth-child(n+4) {
+   display: none;
+}
+
 
 @keyframes animate {
    0% {
