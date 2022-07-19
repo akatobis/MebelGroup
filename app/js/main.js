@@ -25,6 +25,14 @@ $(() => {
       arrows: false,
       slidesToShow: 1,
       slidesToScroll: 1,
-      // autoplay: true,
+      autoplay: true,
+   })
+
+   // Load more
+   $('#load-more').click(() => {
+      $('#boxs .box:hidden').slice(0, 4).slideDown()
+         if ($('#boxs .box:hidden').length === 0){
+            $('load-more').fadeOut('slow')
+         }
    })
 });
